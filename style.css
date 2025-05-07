@@ -1,0 +1,126 @@
+/* Applies to all elements to reset default styles and use a clean font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Styles the full-screen background container */
+.container {
+    min-height: 100vh; /* Makes it take the full height of the browser window */
+    width: 100%; /* Full width */
+    padding: 10px; /* Adds spacing inside */
+    background: linear-gradient(135deg, #153677, #4e085f); /* Adds a diagonal gradient */
+}
+
+/* Styles the white to-do box in the center */
+.todo-app {
+    width: 100%; /* Full width in small screens */
+    max-width: 540px; /* Limits the width on larger screens */
+    margin: 100px auto 20px; /* Centered horizontally with top/bottom spacing */
+    padding: 40px 30px 70px; /* Adds space inside the box */
+    background-color: white; /* White background for contrast */
+    border-radius: 10px; /* Rounded corners for a soft look */
+}
+
+/* Styles the main heading inside the to-do app */
+.todo-app h2 {
+    color: #002765; /* Deep blue text color */
+    display: flex; /* Allows aligning icon next to text */
+    align-items: center; /* Vertically centers icon with text */
+    margin-bottom: 20px; /* Space below heading */
+}
+
+/* Styles the small image (icon) next to "To-Do List" */
+.todo-app h2 img {
+    width: 30px; /* Resizes the icon */
+    margin-left: 10px; /* Space between text and image */
+}
+
+/* Styles the row that contains the input and button */
+.row {
+    display: flex; /* Align input and button side by side */
+    align-items: center; /* Vertically center the content */
+    justify-content: space-between; /* Space between input and button */
+    padding-left: 25px; /* Pushes content a bit to the right */
+    border-radius: 30px; /* Smooth curved edges */
+    margin-bottom: 20px; /* Space below row */
+    /* background: #edeef0; — optional background, currently commented out */
+}
+
+/* Styles the input field for entering tasks */
+input {
+    flex: 1; /* Takes all available space left by button */
+    border: none; /* Removes default border */
+    outline: none; /* Removes outline on focus */
+    background: transparent; /* No background color */
+    padding: 10px; /* Space inside the input */
+    font-size: 14px; /* Font size of the input text */
+}
+
+/* Styles the Add button */
+button {
+    border: none; /* No border */
+    outline: none; /* No focus outline */
+    background: #ff5949; /* Bright red background */
+    color: white; /* White text */
+    padding: 16px 50px; /* Spacing inside the button */
+    border-radius: 40px; /* Fully rounded button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Button text size */
+}
+
+/* Styles each task list item */
+ul li {
+    list-style: none; /* Removes default bullets */
+    font-size: 17px; /* Size of task text */
+    padding: 12px 8px 12px 50px; /* Padding for text and icon spacing */
+    user-select: none; /* Prevents accidental text selection */
+    cursor: pointer; /* Makes it clickable */
+    position: relative; /* Needed for positioning the ::before icon */
+}
+
+/* Custom checkbox (unchecked) shown before each task */
+ul li::before {
+    content: ''; /* Creates an empty placeholder */
+    position: absolute; /* Positioned relative to <li> */
+    height: 28px;
+    width: 28px;
+    border-radius: 50px; /* Makes it circular */
+    background-image: url(images/unchecked.png); /* Shows the custom unchecked image */
+    background-size: cover; /* Makes image fill the area */
+    background-position: center; /* Centers the image */
+    top: 12px; /* Position from top */
+    left: 8px; /* Position from left */
+}
+
+/* Style for completed tasks */
+ul li.checked {
+    text-decoration: line-through; /* Draws a line through text */
+    color: #555; /* Light grey color */
+}
+
+/* Replaces the icon when task is marked as checked */
+ul li.checked::before {
+    background-image: url(images/checked.png); /* Custom checked icon */
+}
+
+/* Delete icon (×) at the end of each task */
+ul li span {
+    position: absolute; /* Positioned inside <li> */
+    right: 0px; /* Sticks to the right */
+    top: 5px; /* Moves it slightly down */
+    width: 40px;
+    height: 40px;
+    font-size: 22px; /* Size of × icon */
+    color: #555; /* Grey color */
+    line-height: 40px; /* Centers vertically */
+    text-align: center; /* Centers horizontally */
+    border-radius: 50%; /* Circular hover area */
+}
+
+/* Hover effect for delete icon */
+ul li span:hover {
+    background: #edeef0; /* Light grey on hover */
+}
